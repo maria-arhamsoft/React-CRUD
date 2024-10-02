@@ -9,7 +9,7 @@ function ProductEdit(props) {
     const history = useHistory();
 
     useEffect(() => {
-        fetch(`http://localhost:3004/products/${props.match.params.id}`)
+        fetch(`http://localhost:9000/products/${props.match.params.id}`)
         .then(res => res.json())
         .then(product => {
             setTitle(product.title);
@@ -20,7 +20,7 @@ function ProductEdit(props) {
 
     const submit = (e) => {
         e.preventDefault();
-        fetch(`http://localhost:3004/products/${props.match.params.id}`, {
+        fetch(`http://localhost:9000/products/${props.match.params.id}`, {
             method: 'PUT',
             headers: {"Content-type": "application/json"},
             body: JSON.stringify({ title, image })

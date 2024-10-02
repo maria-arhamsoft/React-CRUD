@@ -10,9 +10,9 @@ function ProductCreate() {
 
     const submit = (e) => {
         e.preventDefault();
-        fetch('http://localhost:3004/products', {
+        fetch('http://localhost:9000/products', {
             method: 'POST',
-            headers: {"Content-type": "application/json"},
+            headers: { "Content-type": "application/json" },
             body: JSON.stringify({ title, image })
         }).then(() => history.push('/admin/products'));
     }
@@ -21,13 +21,13 @@ function ProductCreate() {
         <Wrapper>
             <form onSubmit={submit}>
                 <label>Title</label>
-                <input type="text" name="title" 
-                onChange={e => setTitle(e.target.value)}
-                 />
+                <input type="text" name="title"
+                    onChange={e => setTitle(e.target.value)}
+                />
                 <label>Image</label>
                 <input type="text" name="image"
-                onChange={e => setImage(e.target.value)}
-                
+                    onChange={e => setImage(e.target.value)}
+
                 />
                 <button type="submit">Add Product</button>
             </form>

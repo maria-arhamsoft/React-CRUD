@@ -8,7 +8,7 @@ function Products() {
     const [products, setProducts] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:3004/products')
+        fetch('http://localhost:9000/products')
           .then(res => res.json())
           .then(data => setProducts(data))
       }, [])
@@ -41,8 +41,8 @@ function Products() {
                     <td>{p.title}</td>
                     <td><img src={p.image} alt={p.title} width="90" /></td>
                     <td>
-                        <Link to={`/admin/products/${p.id}/edit`} className='btn'>Edit</Link>
-                        <button onClick={() => del(p.id)}>Delete</button>
+                        <Link to={`/admin/products/${p.id}/edit`} className='btn btn-primary'>Edit</Link>
+                        <button  className="btn btn-danger" onClick={() => del(p.id)}>Delete</button>
                     </td>
                 </tr>
                     )
